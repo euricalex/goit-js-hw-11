@@ -39,6 +39,7 @@ function renderGallery(images) {
   images.forEach(image => {
     const galleryItem = document.createElement('div');
     galleryItem.classList.add('photo-card');
+   
     galleryItem.innerHTML = `
       <div class="photo-card">
         <a href="${image.largeImageURL}" data-caption="${image.tags}">

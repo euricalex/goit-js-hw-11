@@ -4,7 +4,16 @@ body {
     align-items: center;
     padding-top: 50px;
   }
-  
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    max-width: 100%; /* Додайте цей рядок */
+    margin: 0 auto; /* Це допоможе вирівняти контейнер по центру сторінки */
+  }
+  .photo-card {
+   
+  }
   .search-form {
     margin-bottom: 20px;
   }
