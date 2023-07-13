@@ -9,7 +9,7 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 const searchForm = document.querySelector("#search-form");
 const inputText = document.querySelector("input[type='text']");
 const btnSubmit = document.querySelector("button[type='submit']");
-const galleryList = document.querySelector(".gallery p")
+const galleryList = document.querySelector(".gallery")
 
 
 searchForm.addEventListener('submit', onSearchFormSubmit);
@@ -31,6 +31,8 @@ function onSearchFormSubmit(event) {
         console.log(data);
         renderGallery(data.hits);
         initializeLightBox();
+      
+       
        }
       })
       .catch(error => {
@@ -62,12 +64,17 @@ function renderGallery(images) {
         </div>`;
         galleryList.appendChild(galleryItem);
     });  
+  refreshLightBox();
 }
 function initializeLightBox() {
-    const lightbox = new SimpleLightbox(".gallery a", {
+    const lightbox = new SimpleLightbox('.gallery a', {
       captionDelay: 250,
-      captionsData: "alt",
+      captionsData: 'alt',
     });
   }
+  function refreshLightBox () {
+    SimpleLightbox.refresh();
+  }
+
 
 
