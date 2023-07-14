@@ -50,4 +50,21 @@ body {
   button[type="submit"]:hover {
     background-color: #0d8bf0;
   }
+  .load-more {
+    display: none;
+    background-color: #2196f3;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .load-more:hover {
+    background-color: #1976d2;
+  }
+  
   
