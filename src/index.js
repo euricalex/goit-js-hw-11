@@ -1,12 +1,16 @@
 import Notiflix from 'notiflix';
+import axios from "axios";
+
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
+
 
 const searchForm = document.querySelector('#search-form');
 const inputText = document.querySelector("input[type='text']");
 const btnSubmit = document.querySelector("button[type='submit']");
 const galleryList = document.querySelector('.gallery');
 const loadMoreBtn = document.querySelector('.load-more');
+axios.defaults.headers.common["x-api-key"] = '38235437-3b164ab9bac08b48d72521750';
 
 searchForm.addEventListener('submit', onSubmit);
 loadMoreBtn.addEventListener('click', loadMoreImages);
@@ -72,7 +76,7 @@ async function searchImages(query) {
       top: window.pageYOffset + cardHeight * 2,
       behavior: "smooth",
     });
-    
+
     const totalHitsMessage = `Hooray! We found ${totalHits} images.`;
     Notiflix.Notify.success(totalHitsMessage);
 
