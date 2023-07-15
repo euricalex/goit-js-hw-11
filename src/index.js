@@ -66,6 +66,16 @@ async function searchImages(query) {
       showLoadMoreButton();
     }
 
+    const { height: cardHeight } = galleryList.firstElementChild.getBoundingClientRect();
+
+    window.scrollTo({
+      top: window.pageYOffset + cardHeight * 2,
+      behavior: "smooth",
+    });
+    
+    const totalHitsMessage = `Hooray! We found ${totalHits} images.`;
+    Notiflix.Notify.success(totalHitsMessage);
+
     initializeLightbox();
   } catch (error) {
     console.log('Error:', error);
@@ -91,22 +101,23 @@ function renderGallery(images) {
         </a>
         <div class="info">
           <p class="info-item">
-            <b>Likes:</b> ${image.likes}
+            <b>Likes</b> ${image.likes}
           </p>
           <p class="info-item">
-            <b>Views:</b> ${image.views}
+            <b>Views</b> ${image.views}
           </p>
           <p class="info-item">
-            <b>Comments:</b> ${image.comments}
+            <b>Comments</b> ${image.comments}
           </p>
           <p class="info-item">
-            <b>Downloads:</b> ${image.downloads}
+            <b>Downloads</b> ${image.downloads}
           </p>
         </div>
       </div>`;
     galleryList.appendChild(galleryItem);
   });
 }
+
 
 function initializeLightbox() {
   const lightbox = new SimpleLightbox('.gallery a', {
